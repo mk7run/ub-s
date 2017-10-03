@@ -1,6 +1,6 @@
 # render login page
 get '/sessions/new' do
-  erb :"session/new"
+  erb :"sessions/new"
 end
 
 # check database if the user exists/password is correct to allow user into app
