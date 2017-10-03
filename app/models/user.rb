@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   end
 
   def authenticate(plain_text_password)
-    self.encrypted_password == plain_text_password
+    self.password == plain_text_password
   end
 
   def validate_password

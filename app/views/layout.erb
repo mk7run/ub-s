@@ -25,9 +25,9 @@
       <nav>
         <ul>
           <li>
-            <a href="/users/<%= current_user.id %>">Hello, <%= current_user.name %></a>
+            <a href="/users/<%= current_user.id %>">Hello, <%= current_user.first_name %></a>
           </li>
-          <li>
+          <li class="no-style-button">
             <form method="POST" action="/sessions">
               <input type="hidden" name="_method" value="DELETE" />
               <input type="submit" class="button" value="logout" />
@@ -49,6 +49,8 @@
 
     </div>
   </header>
-  <%= yield %>
+  <main class="container">
+    <%= yield %>
+  </main>
 </body>
 </html>

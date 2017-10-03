@@ -1,7 +1,7 @@
 <h2 class="text-c">Login to your Account!</h2>
 
-<% if @message %>
-<p><%= @message %></p>
+<% if @errors %>
+  <%= erb :"_errors", locals: {errors: @errors} %>
 <% end %>
 
 <form method="POST" action="/sessions">

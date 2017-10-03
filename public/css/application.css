@@ -1,6 +1,26 @@
 body {
   background-color: rgb(193, 205, 193);
 }
+header {
+  display: block;
+}
+
+.container {
+  clear: both;
+  padding: 5%;
+}
+
+nav {
+  padding: 20px;
+}
+
+nav li{
+  display: inline-block;
+  float: right;
+  list-style-type: none;
+  padding-right: 7px;
+  color: blue;
+}
 
 .block {
   display: block;
@@ -41,4 +61,24 @@ body {
 
 .text-c {
   text-align: center;
+}
+
+.errors {
+  color:  #FF0000;
+}
+
+.no-style-button {
+  background: none;
+}
+
+.no-style-button input {
+  background: none;
+  padding: 0;
+  border: none;
+  font: inherit;
+  text-decoration: underline;
+}
+
+.no-style-button input:hover {
+  text-decoration: underline;
 }
