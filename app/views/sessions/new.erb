@@ -1,0 +1,11 @@
+<h2 class="text-c">Login to your Account!</h2>
+
+<% if @errors %>
+  <%= erb :"_errors", locals: {errors: @errors} %>
+<% end %>
+
+<form method="POST" action="/sessions">
+  <input class="block w-70 mar-t-2 mar-b-2 pad-1 center" type="text" name="username" placeholder="Username">
+  <input class="block w-70 mar-t-2 mar-b-2 pad-1 center" type="password" name="password" placeholder="Password">
+  <input class="block w-70 mar-t-2 mar-b-3 pad-2 round-1 text-c submit center" type="submit" value="Sign in!">
+</form>

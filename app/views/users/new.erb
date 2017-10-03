@@ -1,0 +1,14 @@
+<h2 class="text-c">Register a new Account!</h2>
+
+<% if @errors %>
+  <%= erb :"_errors", locals: { errors: @errors } %>
+<% end %>
+
+<form method="POST" action="/users">
+  <input class="block w-70 mar-t-2 mar-b-2 pad-1 center" type="text" name="user[first_name]" placeholder="First Name" value="<%= @user.first_name %>">
+  <input class="block w-70 mar-t-2 mar-b-2 pad-1 center" type="text" name="user[last_name]" placeholder="Last Name" value="<%= @user.last_name %>">
+  <input class="block w-70 mar-t-2 mar-b-2 pad-1 center" type="text" name="user[username]" placeholder="Username" value="<%= @user.username %>">
+  <input class="block w-70 mar-t-2 mar-b-2 pad-1 center" type="text" name="user[email]" placeholder="Email" value="<%= @user.email %>">
+  <input class="block w-70 mar-t-2 mar-b-2 pad-1 center" type="password" name="user[password]" placeholder="Password" value="">
+  <input class="block w-70 mar-t-2 mar-b-3 pad-2 round-1 text-c submit center" type="submit" value="Sign up!">
+</form>
