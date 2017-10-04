@@ -18,7 +18,7 @@ end
 
 # when user decides to log out of the page, delete the session and redirect the page to index so no one can access their shit
 delete '/sessions' do
-  session.delete(:user_id)
+  session[:user_id] = nil
   redirect '/'
 end
 
