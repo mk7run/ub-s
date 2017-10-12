@@ -3,6 +3,7 @@ include BCrypt
   validates :full_name, :username, :email, presence: true
   validates :username, :email, uniqueness: true
   validate :validate_password
+  validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
   def password
     @password ||= Password.new(password_hash)
