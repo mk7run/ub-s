@@ -24,12 +24,15 @@
         <li><a href="/">Home</a></li>  |
         <li><a href="/sessions/new">Hello, <%= current_user.full_name %></a></li>  |
         <li><a><%= erb :"/sessions/_delete" %></a></li>
+      </ul>
     </nav>
   <% else %>
     <nav>
+      <ul>
         <li><a href="/">Home</a></li>  |
         <li><a href="/sessions/new">Login</a></li>  |
         <li><a href="/users/new">Register</a></li>
+      </ul>
     </nav>
   <% end %>
   <main class="container">
