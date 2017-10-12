@@ -11,44 +11,27 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
-
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
   <title></title>
 </head>
 <body>
-  <header>
-    <div>
-
-      <% if logged_in? %>
-      <nav>
-        <ul>
-          <li>
-            <a href="/users/<%= current_user.id %>">Hello, <%= current_user.first_name %></a>
-          </li>
-          <li class="no-style-button">
-            <form method="POST" action="/sessions">
-              <input type="hidden" name="_method" value="DELETE" />
-              <input type="submit" class="button" value="logout" />
-            </form>
-          </li>
-          <li><a href="/">home</a></li>
-        </ul>
-      </nav>
-
-      <% else %>
-      <nav>
-        <ul>
-          <li><a href="/users/new">register</a></li>
-          <li><a href="/sessions/new">login</a></li>
-          <li><a href="/">home</a></li>
-        </ul>
-      </nav>
-      <% end %>
-
-    </div>
-  </header>
+    <% if logged_in? %>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>  |
+        <li><a href="/sessions/new">Hello, <%= current_user.full_name %></a></li>  |
+        <li><a><%= erb :"/sessions/_delete" %></a></li>
+    </nav>
+  <% else %>
+    <nav>
+        <li><a href="/">Home</a></li>  |
+        <li><a href="/sessions/new">Login</a></li>  |
+        <li><a href="/users/new">Register</a></li>
+    </nav>
+  <% end %>
   <main class="container">
     <%= yield %>
   </main>
