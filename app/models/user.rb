@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-
-  validates :first_name, :last_name, :username, :email, presence: true
+include BCrypt
+  validates :full_name, :username, :email, presence: true
   validates :username, :email, uniqueness: true
   validate :validate_password
 

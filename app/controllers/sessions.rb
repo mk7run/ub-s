@@ -5,13 +5,13 @@ end
 
 # check database if the user exists/password is correct to allow user into app
 post '/sessions' do
-  @user = User.find_by(username: params[:username])
+  @user = User.find_by(email: params[:email])
 
   if @user && @user.authenticate(params[:password])
     session[:user_id] = @user.id
     redirect '/'
   else
-    @errors = ["Either your username or password was wrong"]
+    @errors = ["Either your email or password was wrong"]
     erb :"sessions/new"
   end
 end
