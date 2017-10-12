@@ -4,6 +4,7 @@ include BCrypt
   validates :full_name, :username, :email, presence: true
   validates :username, :email, uniqueness: true
   validate :validate_password
+  validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
   # getter method for password of a user
   # BCrypt::Password.new/.create returns a BCrypt::Password instance
