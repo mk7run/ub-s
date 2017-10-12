@@ -4,8 +4,12 @@
   <%= erb :"_errors", locals: { errors: @errors } %>
 <% end %>
 
-<form method="POST" action="/sessions">
-  <input type="text" name="email" placeholder="Email">
-  <input type="password" name="password" placeholder="Password">
-  <input type="submit" value="Sign in">
-</form>
+<div class="user-form">
+  <form method="POST" action="/sessions">
+    <label for="email">Email:</label>
+    <input type="text" name="email">
+    <label for="password">Password:</label>
+    <input type="password" name="password">
+    <input type="submit" value="Sign in">
+  </form>
+</div>
