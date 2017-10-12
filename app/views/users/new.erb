@@ -1,14 +1,17 @@
-<h2 class="text-c">Register a new Account!</h2>
+<h2>Register a new Account!</h2>
 
 <% if @errors %>
   <%= erb :"_errors", locals: { errors: @errors } %>
 <% end %>
 
-<form method="POST" action="/users">
-  <input type="text" name="user[first_name]" placeholder="First Name" value="<%= @user.first_name %>">
-  <input type="text" name="user[last_name]" placeholder="Last Name" value="<%= @user.last_name %>">
-  <input type="text" name="user[username]" placeholder="Username" value="<%= @user.username %>">
-  <input type="text" name="user[email]" placeholder="Email" value="<%= @user.email %>">
-  <input type="password" name="user[password]" placeholder="Password" value="">
-  <input type="submit" value="Sign up">
-</form>
+<div class="user-form">
+  <form method="POST" action="/users">
+    <label for="full_name">Full name:</label>
+    <input type="text" name="user[full_name]">
+    <label for="email">Email:</label>
+    <input type="text" name="user[email]">
+    <label for="password">Password:</label>
+    <input type="password" name="user[password]">
+    <input type="submit" value="Sign up">
+  </form>
+</div>
