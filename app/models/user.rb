@@ -1,18 +1,17 @@
 class User < ActiveRecord::Base
-  include BCrypt
 
   validates :first_name, :last_name, :username, :email, presence: true
   validates :username, :email, uniqueness: true
   validate :validate_password
 
   def password
-    @password ||= Password.new(encrypted_password)
+    @password ||= Password.new(password_hash)
   end
 
   def password=(plain_text_password)
     @raw_password = plain_text_password
     @password = Password.create(plain_text_password)
-    self.encrypted_password = @password
+    self.password_hash = @password
   end
 
   def authenticate(plain_text_password)
