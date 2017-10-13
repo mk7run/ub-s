@@ -12,33 +12,53 @@ end
 
 # create a new thing
 post '/things' do
+  @thing = Thing.new(params[:thing])
   authenticate!
-  redirect '/things'
+  
+  if @thing.valid?
+    current_user.things << @things
+    redirect "/things/#{@thing.id}"
+  else
+    @errors = @things.errors.full_messages
+    erb :"/things/new"
+  end
 end
 
 # display a specific thing
 get '/things/:id' do
+  @thing = find_and_ensure(params[:id])
   erb :"/things/show"
 end
 
 # render an edit form for a thing
 get '/things/:id/edit' do
+  @thing = find_and_ensure(params[:id])
   authenticate!
-  authorized!
-  erb :"/things/:id/edit"
+  authorize!(@thing.owner)
+  erb :"/things/edit"
 end
 
 # update a thing
 put '/things/:id' do
+  @thing = find_and_ensure(params[:id])
   authenticate!
-  authorized!
-  redirect "/things/#{params[:id]}"
+  authorize!(@thing.owner)
+  @thing.assign_attributes(params[:thing])
+  
+  if @thing.save
+    redirect "/things/#{params[:id]}"
+  else
+    @errors = @thing.errors.full_messages
+    erb :'things/edit'
+  end
 end
 
 # delete a specific thing
 delete '/things/:id' do
+  @thing = find_and_ensure(params[:id])
   authenticate!
-  authorized!
+  authorize!(@thing.owner)
+  @thing.destroy
   redirect '/things'
 end
 
