@@ -22,7 +22,7 @@
     <nav>
       <ul>
         <li><a href="/">Home</a></li>  |
-        <li><a href="/sessions/new">Hello, <%= current_user.full_name %></a></li>  |
+        <li><a href="/users/<%= current_user.id %>">Hello, <%= current_user.full_name %></a></li>  |
         <li><a><%= erb :"/sessions/_delete" %></a></li>
       </ul>
     </nav>
