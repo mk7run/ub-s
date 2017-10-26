@@ -1,0 +1,25 @@
+<div id="info-container">
+  <% if @drug2 %>
+    <h1><%=@drug["name"]%> & <%= @drug2 %></h1>
+  <% else %>
+    <h1><%=@drug["name"]%></h1>
+  <% end %>
+  <p><h3>Disclaimer:</h3> <%= @disclaimer %></p>
+  <p><h3>Source:</h3> <%= @source_name %></p>
+</div>
+
+  <div id="interaction">
+    <table border='1'>
+      <tr>
+        <th>Description</th>
+      </tr>
+      <% @output.each do |drug| %>
+      <tr>
+        <td><%= drug["description"] %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+<footer>
+</footer>

@@ -13,9 +13,9 @@ gem 'activerecord', '~>5.1.0'
 gem 'rake'
 
 gem 'shotgun', '~>0.9.1'
-
+gem 'rest-client', '~> 1.8'
 gem 'bcrypt'
-
+gem 'nokogiri'
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'

@@ -1,7 +1,5 @@
 .container {
   margin: 20px auto;
-  width: 600px;
-  padding: 20px;
 }
 
 th {
@@ -34,6 +32,9 @@ a:hover {
   color: #9932CC;
 }
 
+.container{
+  padding: 10%;
+}
 .user-form input{
   display: block;
   padding: 5px;
@@ -56,3 +57,31 @@ a:hover {
   color: #9932CC;
 }
 
+span {
+  font-weight: bold;
+}
+
+#info-container {
+  margin-top: 7%;
+  float: left;
+  width: 20%;
+  padding-left: 5%;
+}
+
+#interaction {
+  margin-top: 7%;
+  float: right;
+  padding-right: 5%;
+}
+
+input {
+}
+
+#comparison, #one {
+  margin: 50px;
+  padding: 50px;
+}
+
+th, td {
+  padding: 10px;
+}
